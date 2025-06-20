@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasan Perera | Portfolio</title>
+
+    <!-- Local web-font declarations -->
+    <link rel="stylesheet" href="fonts/stylesheet.css" />
+    <!-- Main site styles -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-wrapper">
+        <div class="hero-left">
+          <div class="hero-content">
+            <h1>Hi, I'm Pasan Perera</h1>
+            <h2 class="headline">Full-Stack Engineer & Data Science Undergraduate</h2>
+            <p class="value-prop">
+              Third-year Data Science undergraduate at SLIIT transforming data into decisions and ideas into clean, maintainable code.
+            </p>
+            
+            <div class="cta-row">
+              <a href="#projects" class="btn">View Projects</a>
+              <a href="Pasan_Perea_Resume.pdf" target="_blank" class="btn btn-secondary">Download CV</a>
+            </div>
+            
+            <div class="social-links">
+              <a href="https://github.com/praisedp" target="_blank" rel="noopener">
+                <i data-lucide="github"></i>
+                <span>GitHub</span>
+              </a>
+              <a href="http://linkedin.com/in/pasan-perera-269920345" target="_blank" rel="noopener">
+                <i data-lucide="linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <p style="opacity:.65">Sample content goes here.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          I'm an undergraduate at SLIIT passionate about full-stack development &
+          data science. I craft performant web and mobile experiences using
+          MERN, Android (Kotlin) and Python ML stacks, always with clean,
+          maintainable code.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <div class="grid">
+          <div class="card">
+            <img src="https://picsum.photos/600/400?random=1" alt="Project screenshot" />
+            <div class="card-content">
+              <h3>Project Diamonds</h3>
+              <p>Role-based event portal with JWT auth & real-time chat.</p>
+              <span class="tag">React</span><span class="tag">Node</span><span class="tag">MongoDB</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <img src="https://picsum.photos/600/400?random=2" alt="Project screenshot" />
+            <div class="card-content">
+              <h3>Queen's Laundry</h3>
+              <p>Automated order / delivery flow for a local laundry service.</p>
+              <span class="tag">Java</span><span class="tag">MySQL</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <img src="https://picsum.photos/600/400?random=3" alt="Project screenshot" />
+            <div class="card-content">
+              <h3>Oro Expense Tracker</h3>
+              <p>On-device budgeting & analytics with Material UI.</p>
+              <span class="tag">Kotlin</span><span class="tag">Room DB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        © 2025 Pasan Perera ·
+        <a href="mailto:pasan@example.com">Email</a> ·
+        <a href="https://www.linkedin.com/">LinkedIn</a> ·
+        <a href="https://github.com/">GitHub</a>
+      </p>
+    </footer>
+
+    <!-- Fake cursor dot -->
+    <div id="cursor"></div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

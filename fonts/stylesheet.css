@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-BlackItalic.woff2') format('woff2'),
+        url('ChambersSansPro-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-BoldItalic.woff2') format('woff2'),
+        url('ChambersSansPro-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-Bold.woff2') format('woff2'),
+        url('ChambersSansPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-Medium.woff2') format('woff2'),
+        url('ChambersSansPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-MediumItalic.woff2') format('woff2'),
+        url('ChambersSansPro-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro.woff2') format('woff2'),
+        url('ChambersSansPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-Italic.woff2') format('woff2'),
+        url('ChambersSansPro-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ChambersSansPro';
+    src: url('ChambersSansPro-Black.woff2') format('woff2'),
+        url('ChambersSansPro-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
