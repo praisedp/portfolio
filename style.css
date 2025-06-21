@@ -11,6 +11,16 @@
 *::before,
 *::after { margin:0; padding:0; box-sizing:border-box; }
 
+/* Hide native cursor on interactive elements too */
+a,
+button,
+input,
+textarea,
+select,
+label {
+  cursor: none;
+}
+
 html { scroll-behavior:smooth; }
 
 body{
