@@ -48,14 +48,22 @@
         <div class="hero-right">
           <nav class="hero-nav" role="navigation" aria-label="Section navigation">
             <a href="#about"      class="nav-btn">About</a>
-            <a href="#skills"     class="nav-btn">Skills</a>
             <a href="#projects"   class="nav-btn">Projects</a>
-            <a href="#experience" class="nav-btn">Experience</a>
+            <a href="#skills"     class="nav-btn">Skills</a>
+            <a href="#education"  class="nav-btn">Education</a>
             <a href="#contact"    class="nav-btn">Contact</a>
           </nav>
         </div>
       </div>
     </header>
+    <!-- Floating navigation buttons -->
+    <nav class="floating-nav" id="floating-nav" role="navigation" aria-label="Floating navigation">
+      <a href="#about"      class="floating-nav-btn" data-section="about">About</a>
+      <a href="#projects"   class="floating-nav-btn" data-section="projects">Projects</a>
+      <a href="#skills"     class="floating-nav-btn" data-section="skills">Skills</a>
+      <a href="#education"  class="floating-nav-btn" data-section="education">Education</a>
+      <a href="#contact"    class="floating-nav-btn" data-section="contact">Contact</a>
+    </nav>
 
     <!-- About -->
     <section id="about" class="about">
@@ -106,16 +114,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>
-        © 2025 Pasan Perera ·
-        <a href="mailto:pasan@example.com">Email</a> ·
-        <a href="https://www.linkedin.com/">LinkedIn</a> ·
-        <a href="https://github.com/">GitHub</a>
-      </p>
-    </footer>
-
     <!-- Skills -->
     <section id="skills" class="skills">
       <div class="container">
@@ -124,11 +122,15 @@
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="experience">
+    <!-- Education -->
+    <section id="education" class="education">
       <div class="container">
-        <h2>Experience</h2>
-        <p>Internships, freelance projects and teaching‑assistant work will be summarised here.</p>
+        <h2>Education</h2>
+        <p>
+          <strong>BSc&nbsp;(Hons) Information Technology – Data Science Specialisation</strong><br>
+          Sri&nbsp;Lanka Institute of Information Technology (SLIIT) · Expected&nbsp;Dec 2026 · GPA 3.7/4.0<br>
+          Key coursework: Data Structures &amp; Algorithms, DBMS, Probability &amp; Statistics, Machine Learning
+        </p>
       </div>
     </section>
 
@@ -139,6 +141,16 @@
         <p>Feel free to reach me at <a href="mailto:pasan@example.com">pasan@example.com</a> or connect on LinkedIn.</p>
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        © 2025 Pasan Perera ·
+        <a href="mailto:pasan@example.com">Email</a> ·
+        <a href="https://www.linkedin.com/">LinkedIn</a> ·
+        <a href="https://github.com/">GitHub</a>
+      </p>
+    </footer>
 
     <!-- Mobile navigation toggle -->
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -151,9 +163,9 @@
     <div class="mobile-nav" id="mobile-nav">
       <nav class="hero-nav" role="navigation" aria-label="Mobile navigation">
         <a href="#about"      class="nav-btn">About</a>
-        <a href="#skills"     class="nav-btn">Skills</a>
         <a href="#projects"   class="nav-btn">Projects</a>
-        <a href="#experience" class="nav-btn">Experience</a>
+        <a href="#skills"     class="nav-btn">Skills</a>
+        <a href="#education"  class="nav-btn">Education</a>
         <a href="#contact"    class="nav-btn">Contact</a>
       </nav>
     </div>

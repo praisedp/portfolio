@@ -133,3 +133,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/* ========= Floating navigation bubbles ========= */
+document.addEventListener('DOMContentLoaded', () => {
+  const floatingNav     = document.getElementById('floating-nav');
+  const heroSection     = document.querySelector('.hero');
+  const floatingNavBtns = document.querySelectorAll('.floating-nav-btn');
+  const sections        = document.querySelectorAll('section[id]');
+
+  // ensure we track the Education section; drop any legacy #experience
+  const sectionList = Array.from(sections).filter(sec => sec.id !== 'experience');
+
+  function handleFloatingNav(){
+    const heroRect = heroSection.getBoundingClientRect();
+    const heroVisible = heroRect.bottom > 0;
+    if (!heroVisible){
+      floatingNav.classList.add('show');
+    } else {
+      floatingNav.classList.remove('show');
+    }
+  }
+
+  function updateActiveSection(){
+    let current = '';
+    sectionList.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= window.innerHeight/3 &&
+          rect.top + rect.height > window.innerHeight/3){
+        current = sec.id;
+      }
+    });
+    floatingNavBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.section === current);
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    handleFloatingNav();
+    updateActiveSection();
+  });
+
+  // initial
+  handleFloatingNav();
+  updateActiveSection();
+
+  // smooth scroll
+  floatingNavBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('href').slice(1);
+      const target   = document.getElementById(targetId);
+      if (target){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+      // close mobile menu if open
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (hamburger && mobileNav){
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+      }
+    });
+  });
+});
