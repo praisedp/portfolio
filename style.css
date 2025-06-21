@@ -290,3 +290,187 @@ footer a {
   margin: 0 auto;
   padding: 0 2rem;
 }
+/* ---------- Hero right stacked nav ---------- */
+.hero-nav{
+  display:flex;
+  flex-direction:column;
+  gap:0; /* Remove gap since borders will create the visual separation */
+  align-items:center;
+}
+
+.nav-btn{
+  width:280px;
+  padding:1.5rem 1rem;
+  text-decoration: none;
+  text-align:center;
+  background:transparent; /* Transparent background */
+  color:var(--obsidian);
+  border: none; /* Remove all borders, we'll use pseudo-elements */
+  border-radius:0;
+  font-weight:600;
+  /* Smooth transitions for text zoom */
+  transition: background .1s, font-size .1s ease, color .1s ease;
+  cursor:none; /* keep native pointer hidden */
+  position: relative; /* For positioning pseudo-elements */
+}
+
+/* Create curved top border */
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--obsidian);
+  border-radius: 2px; /* Curved edges */
+}
+
+/* Create curved bottom border */
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--obsidian);
+  border-radius: 2px; /* Curved edges */
+}
+
+/* Remove double borders between adjacent buttons */
+.nav-btn + .nav-btn::before {
+  display: none;
+}
+
+.nav-btn:hover{
+  font-size: 1.5em; /* Increase text size only */
+  transform: none; /* Remove scale transform */
+  box-shadow: none; /* Remove box shadow */
+  background: transparent; /* Keep background transparent */
+  color: var(--obsidian); /* Keep original text color */
+}
+/* ---------- Hamburger Menu ---------- */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10001;
+  background: var(--obsidian);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--frosted-white);
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--frosted-white);
+  z-index: 10000;
+  padding: 6rem 2rem 2rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav.active {
+  transform: translateX(0);
+}
+
+.mobile-nav .hero-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Mobile nav buttons - same styling as desktop */
+.mobile-nav .nav-btn {
+  width: 280px;
+  padding: 1.5rem 1rem;
+  text-decoration: none;
+  text-align: center;
+  background: transparent;
+  color: var(--obsidian);
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  transition: background 0.25s, font-size 0.25s ease, color 0.25s ease;
+  cursor: none;
+  position: relative;
+}
+
+.mobile-nav .nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--obsidian);
+  border-radius: 2px;
+}
+
+.mobile-nav .nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--obsidian);
+  border-radius: 2px;
+}
+
+.mobile-nav .nav-btn + .nav-btn::before {
+  display: none;
+}
+
+.mobile-nav .nav-btn:hover {
+  font-size: 1.1em;
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+  color: var(--obsidian);
+}
+
+/* Hide nav on small screens and show hamburger */
+@media (max-width: 768px){
+  .hero-nav{display:none;}
+  .hamburger{display:block;}
+  .mobile-nav{display:block;}
+}
