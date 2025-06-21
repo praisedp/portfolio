@@ -1,73 +1,74 @@
-/* ---------- CSS Variables ---------- */
+/* =====================
+   CSS Variables
+   ===================== */
 :root {
-  --obsidian: #222222;      /* Obsidian */
-  --glacier-gray: #d1d1d1;    /* Glacier Gray */
-  --frosted-white: #fafafa;         /* Frosted White */
-  --steely: #929292;        /* Steely Ice */
+  --obsidian: #222222;         /* Deep black for backgrounds/text */
+  --glacier-gray: #d1d1d1;     /* Light gray for backgrounds/borders */
+  --frosted-white: #fafafa;    /* Off-white for backgrounds */
+  --steely: #929292;           /* Muted gray for secondary text */
 }
 
-/* ---------- Global Reset ---------- */
-*,
-*::before,
-*::after { margin:0; padding:0; box-sizing:border-box; }
+/* =====================
+   Global Reset & Base
+   ===================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Hide native cursor on interactive elements too */
-a,
-button,
-input,
-textarea,
-select,
-label {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'ChambersSansPro', sans-serif;
+  line-height: 1.6;
+  color: var(--obsidian);
+  background: var(--frosted-white);
+  cursor: none; /* Hide OS pointer */
+}
+
+/* Hide native cursor on interactive elements */
+a, button, input, textarea, select, label {
   cursor: none;
 }
 
-html { scroll-behavior:smooth; }
-
-body{
-  font-family:'ChambersSansPro',sans-serif;
-  line-height:1.6;
-  color:var(--obsidian);
-  background:var(--frosted-white);
-  cursor:none;                         /* hide OS pointer */
+/* =====================
+   Buttons
+   ===================== */
+.btn {
+  display: inline-block;
+  background: var(--glacier-gray);
+  color: var(--obsidian);
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.1s, box-shadow 0.1s;
+  cursor: none;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  --shadow-color: 255,255,255;
+  position: relative;
+}
+.btn:hover {
+  background: var(--obsidian);
+  color: var(--frosted-white);
+}
+.btn--active {
+  box-shadow: 0 8px 6px rgba(255,255,255,0.3);
 }
 
-/* images, links, utilities omitted for brevity … */
-/* ---------- Buttons ---------- */
-.btn{
-  display:inline-block;
-  background:var(--glacier-gray);
-  color:var(--obsidian);
-  padding:.75rem 1.75rem;
-  border-radius:.25rem;
-  font-weight:600;
-  transition:background .3s ease, transform .1s ease, box-shadow .1s ease;
-  cursor:none;                         /* no hand cursor */
-  transform-style:preserve-3d;
-  will-change:transform,box-shadow;
-  --shadow-color: 255,255,255;   /* RGB fallback; override per‑button if needed */
-  position:relative;
+/* CTA container with 3D perspective */
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  perspective: 800px;
 }
-.btn:hover{ background:var(--obsidian); color:var(--frosted-white); }
 
-/* secondary variant */
-/* .btn-secondary{
-  background:transparent;
-  border:2px solid var(--glacier-gray);
-  color:var(--glacier-gray);
-}
-.btn-secondary:hover{
-  background:var(--glacier-gray);
-  color:var(--obsidian);
-} */
-
-/* Base shadow for 3D effect */
-.btn--active{
-  box-shadow:0 8px 6px rgba(255, 255, 255, 0.3);
-}
-/* ---------- CTA container perspective ---------- */
-.cta-row{ display:flex; gap:1rem; perspective:800px; }
-
-/* ---------- Hero ---------- */
+/* =====================
+   Hero Section
+   ===================== */
 .hero {
   background: var(--frosted-white);
   color: var(--obsidian);
@@ -75,46 +76,39 @@ body{
   display: flex;
   align-items: stretch;
 }
-
-/* ---------- Hero Split Layout ---------- */
-.hero-wrapper{
-  display:flex;
-  align-items:center;
-  width:100%;            /* span full viewport width */
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
-
-.hero-left{
+.hero-left {
   flex: 2 1 66%;
   background: var(--obsidian);
   color: var(--frosted-white);
   padding: 4rem 3rem;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  min-height:100vh;      /* stretch from top to bottom */
-  display:flex;
+  min-height: 100vh;
+  display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
-
 .hero-content {
   width: 100%;
   max-width: 600px;
 }
-
 .hero-content h1 {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.1;
 }
-
 .hero-content .headline {
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--glacier-gray);
   margin-bottom: 1.5rem;
 }
-
 .hero-content .value-prop {
   font-size: 1.1rem;
   line-height: 1.7;
@@ -122,27 +116,31 @@ body{
   color: var(--frosted-white);
   opacity: 0.9;
 }
-
-.hero-right{
+.hero-right {
   flex: 1 1 34%;
   padding: 4rem 2rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Small screens: stack vertically and hide empty panel */
-@media (max-width: 768px){
-  .hero-wrapper{flex-direction:column;}
-  .hero-left{border-radius:0; padding: 3rem 2rem;}
-  .hero-right{display:none;}
+/* Responsive: Stack hero on small screens */
+@media (max-width: 768px) {
+  .hero-wrapper { flex-direction: column; }
+  .hero-left {
+    border-radius: 0;
+    padding: 3rem 2rem;
+  }
+  .hero-right { display: none; }
   .hero-content h1 { font-size: 2.5rem; }
   .hero-content .headline { font-size: 1.25rem; }
   .cta-row { flex-direction: column; gap: 0.75rem; }
   .btn { text-align: center; }
 }
 
-/* ---------- Section Headings ---------- */
+/* =====================
+   Section Headings
+   ===================== */
 section h2 {
   font-weight: 600;
   font-size: 2.25rem;
@@ -162,18 +160,167 @@ section h2::after {
   border-radius: 2px;
 }
 
-/* ---------- About ---------- */
+/* =====================
+   About Section
+   ===================== */
 .about {
-  padding: 4rem 0;
+  background: var(--frosted-white);
+  color: var(--obsidian);
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
 }
-.about p {
-  max-width: 70ch;
-  margin-inline: auto;
-  text-align: center;
+.about-wrapper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.about-left {
+  flex: 2 1 66%;
+  background: var(--frosted-white);
+  color: var(--obsidian);
+  padding: 4rem 3rem;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border: 2px solid var(--glacier-gray);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-content {
+  width: 100%;
+  max-width: 600px;
+}
+.about-content h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-align: left;
+}
+.about-content h2::after { display: none; }
+.about-headline {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--steely);
+  margin-bottom: 1.5rem;
+}
+.about-description {
   font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--obsidian);
+  opacity: 0.9;
+}
+.about-right {
+  flex: 1 1 34%;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ---------- Projects ---------- */
+/* About stats and chips */
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 280px;
+}
+.stat-item {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: var(--glacier-gray);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.stat-value {
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--obsidian);
+}
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--steely);
+}
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.chip {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--glacier-gray);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: var(--glacier-gray);
+  color: var(--obsidian);
+  font-weight: 500;
+}
+
+/* Interactive chips */
+.interactive-chips { margin-top: 1rem; }
+.interactive-chip {
+  cursor: none;
+  transition: all 0.3s;
+  min-width: 80px;
+  text-align: center;
+}
+.interactive-chip:hover {
+  background: var(--obsidian);
+  color: var(--frosted-white);
+  transform: translateY(-2px);
+}
+.about-right .interactive-chips {
+  flex-direction: column;
+  gap: 2rem;
+}
+.about-right .interactive-chip {
+  width: 180px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+}
+
+/* Responsive: About section */
+@media (max-width: 768px) {
+  .about-wrapper { flex-direction: column; }
+  .about-left {
+    border-radius: 0;
+    padding: 3rem 2rem;
+    border: none;
+    border-bottom: 2px solid var(--glacier-gray);
+  }
+  .about-content h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .about-content h2::after { display: block; }
+  .about-headline, .about-description { text-align: center; }
+  .chip-row { justify-content: center; }
+  .about-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: none;
+  }
+  .stat-item {
+    flex: 1;
+    min-width: 140px;
+  }
+}
+
+/* =====================
+   Projects Section
+   ===================== */
 .projects {
   background: var(--glacier-gray);
   padding: 4rem 0;
@@ -187,10 +334,10 @@ section h2::after {
   background: var(--frosted-white);
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
   transform: translateY(30px);
   opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
+  transition: transform 0.6s, opacity 0.6s;
 }
 .card.show {
   transform: translateY(0);
@@ -221,7 +368,9 @@ section h2::after {
   margin-right: 0.4rem;
 }
 
-/* ---------- Footer ---------- */
+/* =====================
+   Footer
+   ===================== */
 footer {
   background: var(--obsidian);
   color: var(--frosted-white);
@@ -232,32 +381,33 @@ footer a {
   color: var(--glacier-gray);
 }
 
-/* ---------- Custom Cursor (blend‑mode) ---------- */
-#cursor{
-  position:fixed;
-  top:0; left:0;
-  width:16px; height:16px;
-  border-radius:50%;
-  background:#ffffff;          /* always white, blend does the contrast */
-  mix-blend-mode:difference;   /* automatic light‑vs‑dark */
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:10000;
-  transition:transform .12s ease;
+/* =====================
+   Custom Cursor
+   ===================== */
+#cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  z-index: 10000;
+  transition: transform 0.12s;
 }
-
-/* Enlarged state while mouse is pressed */
 #cursor.cursor--clicked {
   transform: translate(-50%, -50%) scale(2);
 }
 
-/* ---------- Social links in hero ---------- */
+/* =====================
+   Social Links (Hero)
+   ===================== */
 .social-links {
   display: flex;
   gap: 1.5rem;
   margin-top: 2.5rem;
 }
-
 .social-links a {
   display: flex;
   align-items: center;
@@ -265,92 +415,84 @@ footer a {
   font-size: 0.95rem;
   color: var(--glacier-gray);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   padding: 0.5rem 0;
 }
-
 .social-links a:hover {
   color: var(--frosted-white);
   transform: translateY(-2px);
 }
-
 .social-links a i {
   width: 20px;
   height: 20px;
   stroke-width: 1.5;
 }
-
 .social-links a span {
   font-weight: 500;
 }
 
-/* Container utility */
+/* =====================
+   Container Utility
+   ===================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
-/* ---------- Hero right stacked nav ---------- */
-.hero-nav{
-  display:flex;
-  flex-direction:column;
-  gap:0; /* Remove gap since borders will create the visual separation */
-  align-items:center;
-}
 
-.nav-btn{
-  width:280px;
-  padding:1.5rem 1rem;
+/* =====================
+   Hero Right Nav
+   ===================== */
+.hero-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+}
+.nav-btn {
+  width: 280px;
+  padding: 1.5rem 1rem;
   text-decoration: none;
-  text-align:center;
-  background:transparent; /* Transparent background */
-  color:var(--obsidian);
-  border: none; /* Remove all borders, we'll use pseudo-elements */
-  border-radius:0;
-  font-weight:600;
-  /* Smooth transitions for text zoom */
-  transition: background .1s, font-size .1s ease, color .1s ease;
-  cursor:none; /* keep native pointer hidden */
-  position: relative; /* For positioning pseudo-elements */
+  text-align: center;
+  background: transparent;
+  color: var(--obsidian);
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  transition: background 0.1s, font-size 0.1s, color 0.1s;
+  cursor: none;
+  position: relative;
 }
-
-/* Create curved top border */
-.nav-btn::before {
+.nav-btn::before, .mobile-nav .nav-btn::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 4px;
   background: var(--obsidian);
-  border-radius: 2px; /* Curved edges */
+  border-radius: 2px;
 }
-
-/* Create curved bottom border */
-.nav-btn::after {
+.nav-btn::after, .mobile-nav .nav-btn::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: 4px;
   background: var(--obsidian);
-  border-radius: 2px; /* Curved edges */
+  border-radius: 2px;
 }
-
-/* Remove double borders between adjacent buttons */
-.nav-btn + .nav-btn::before {
+.nav-btn + .nav-btn::before, .mobile-nav .nav-btn + .nav-btn::before {
   display: none;
 }
-
-.nav-btn:hover{
-  font-size: 1.5em; /* Increase text size only */
-  transform: none; /* Remove scale transform */
-  box-shadow: none; /* Remove box shadow */
-  background: transparent; /* Keep background transparent */
-  color: var(--obsidian); /* Keep original text color */
+.nav-btn:hover, .mobile-nav .nav-btn:hover {
+  font-size: 1.5em;
+  background: transparent;
+  color: var(--obsidian);
+  box-shadow: none;
+  transform: none;
 }
-/* ---------- Hamburger Menu ---------- */
+
+/* =====================
+   Hamburger & Mobile Nav
+   ===================== */
 .hamburger {
   display: none;
   position: fixed;
@@ -362,9 +504,8 @@ footer a {
   border-radius: 0.5rem;
   padding: 0.75rem;
   cursor: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
-
 .hamburger span {
   display: block;
   width: 25px;
@@ -374,39 +515,30 @@ footer a {
   transition: 0.3s;
   border-radius: 2px;
 }
-
-/* Hamburger animation when active */
 .hamburger.active span:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
-
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.active span:nth-child(3) {
   transform: rotate(45deg) translate(-5px, -6px);
 }
-
-/* Mobile Navigation Overlay */
 .mobile-nav {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100vh;
   background: var(--frosted-white);
   z-index: 10000;
   padding: 6rem 2rem 2rem;
   transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
-
 .mobile-nav.active {
   transform: translateX(0);
 }
-
 .mobile-nav .hero-nav {
   display: flex;
   flex-direction: column;
@@ -417,8 +549,6 @@ footer a {
   max-width: 400px;
   margin: 0 auto;
 }
-
-/* Mobile nav buttons - same styling as desktop */
 .mobile-nav .nav-btn {
   width: 280px;
   padding: 1.5rem 1rem;
@@ -429,75 +559,38 @@ footer a {
   border: none;
   border-radius: 0;
   font-weight: 600;
-  transition: background 0.25s, font-size 0.25s ease, color 0.25s ease;
+  transition: background 0.25s, font-size 0.25s, color 0.25s;
   cursor: none;
   position: relative;
 }
-
-.mobile-nav .nav-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--obsidian);
-  border-radius: 2px;
+@media (max-width: 768px) {
+  .hero-nav { display: none; }
+  .hamburger { display: block; }
+  .mobile-nav { display: block; }
 }
 
-.mobile-nav .nav-btn::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--obsidian);
-  border-radius: 2px;
-}
-
-.mobile-nav .nav-btn + .nav-btn::before {
-  display: none;
-}
-
-.mobile-nav .nav-btn:hover {
-  font-size: 1.1em;
-  transform: none;
-  box-shadow: none;
-  background: transparent;
-  color: var(--obsidian);
-}
-
-/* Hide nav on small screens and show hamburger */
-@media (max-width: 768px){
-  .hero-nav{display:none;}
-  .hamburger{display:block;}
-  .mobile-nav{display:block;}
-}
-
-/* ---------- Floating Navigation Bubbles ---------- */
-.floating-nav{
+/* =====================
+   Floating Navigation Bubbles
+   ===================== */
+.floating-nav {
   position: fixed;
   top: 2rem;
   right: 2rem;
   left: auto;
-  transform: none;
   display: flex;
   gap: 1rem;
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s, visibility 0.3s;
 }
-.floating-nav.show{
+.floating-nav.show {
   opacity: 1;
   visibility: visible;
 }
-.floating-nav-btn{
+.floating-nav-btn {
   padding: 0.5rem 1.25rem;
-  height: auto;
   border-radius: 25px;
-  width: auto;
   background: var(--frosted-white);
   color: var(--obsidian);
   border: 2px solid var(--glacier-gray);
@@ -508,21 +601,47 @@ footer a {
   font-weight: 600;
   font-size: 0.9rem;
   cursor: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   backdrop-filter: blur(10px);
 }
-.floating-nav-btn:hover{
+.floating-nav-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
-/* Active section */
-.floating-nav-btn.active{
+.floating-nav-btn.active {
   background: var(--obsidian);
   color: var(--frosted-white);
   border-color: var(--obsidian);
 }
-/* Hide on small screens */
-@media (max-width: 768px){
-  .floating-nav{display:none;}
+@media (max-width: 768px) {
+  .floating-nav { display: none; }
+}
+
+/* =====================
+   Skills, Education, Contact Sections
+   ===================== */
+.skills, .education, .contact {
+  padding: 4rem 0;
+}
+.skills, .contact {
+  background: var(--frosted-white);
+}
+.education {
+  background: var(--glacier-gray);
+}
+.skills p, .education p, .contact p {
+  max-width: 70ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.contact a {
+  color: var(--obsidian);
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+.contact a:hover {
+  color: var(--steely);
 }

@@ -28,7 +28,6 @@
             </p>
             
             <div class="cta-row">
-              <a href="#projects" class="btn">View Projects</a>
               <a href="Pasan_Perea_Resume.pdf" target="_blank" class="btn btn-secondary">Download CV</a>
             </div>
             
@@ -67,14 +66,36 @@
 
     <!-- About -->
     <section id="about" class="about">
-      <div class="container">
-        <h2>About Me</h2>
-        <p>
-          I'm an undergraduate at SLIIT passionate about full-stack development &
-          data science. I craft performant web and mobile experiences using
-          MERN, Android (Kotlin) and Python ML stacks, always with clean,
-          maintainable code.
-        </p>
+      <div class="about-wrapper">
+        <div class="about-left">
+          <div class="about-content">
+            <h2>About Me</h2>
+            <h3 class="about-headline">Data‑science‑minded Full‑Stack Engineer</h3>
+            <p class="about-description">
+              Third‑year BSc IT (Data Science) undergraduate at SLIIT (GPA&nbsp;3.73) turning raw data and business pain‑points into full‑stack solutions. Recognised on the Dean's List twice and fluent across the MERN stack, Android/Kotlin, and Python analytics.
+            </p>
+            <p class="about-description">
+              Off the keyboard I produce campus radio and captain quiz teams—anything that sharpens communication and curiosity. Team‑first, scrum‑savvy, and addicted to turning analytics into action.
+            </p>
+            
+            <div class="chip-row">
+              <span class="chip">Full‑Stack</span>
+              <span class="chip">Data Science</span>
+              <span class="chip">AI‑Curious</span>
+              <span class="chip">Mobile Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <div class="chip-row interactive-chips">
+            <span class="chip interactive-chip" data-default="GPA" data-hover="3.73">GPA</span>
+            <span class="chip interactive-chip" data-default="Year" data-hover="3rd">Year</span>
+            <span class="chip interactive-chip" data-default="Languages" data-hover="English / Sinhala">Languages</span>
+            <span class="chip interactive-chip" data-default="Projects" data-hover="4+">Projects</span>
+            <span class="chip interactive-chip" data-default="Location" data-hover="Colombo">Location</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -128,8 +149,8 @@
         <h2>Education</h2>
         <p>
           <strong>BSc&nbsp;(Hons) Information Technology – Data Science Specialisation</strong><br>
-          Sri&nbsp;Lanka Institute of Information Technology (SLIIT) · Expected&nbsp;Dec 2026 · GPA 3.7/4.0<br>
-          Key coursework: Data Structures &amp; Algorithms, DBMS, Probability &amp; Statistics, Machine Learning
+          Sri&nbsp;Lanka Institute of Information Technology (SLIIT) · Expected&nbsp;Dec 2026 · GPA 3.7/4.0<br>
+          Key coursework: Data Structures &amp; Algorithms, DBMS, Probability &amp; Statistics, Machine Learning
         </p>
       </div>
     </section>
@@ -173,6 +194,15 @@
     <!-- Fake cursor dot -->
     <div id="cursor"></div>
 
+    <script>
+      // Interactive chips functionality
+      document.querySelectorAll('.interactive-chip').forEach(chip => {
+        const def = chip.getAttribute('data-default');
+        const hov = chip.getAttribute('data-hover');
+        chip.addEventListener('mouseenter', () => (chip.textContent = hov));
+        chip.addEventListener('mouseleave', () => (chip.textContent = def));
+      });
+    </script>
     <script>
       // Initialize Lucide icons
       lucide.createIcons();
