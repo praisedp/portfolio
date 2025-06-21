@@ -246,6 +246,11 @@ footer a {
   transition:transform .12s ease;
 }
 
+/* Enlarged state while mouse is pressed */
+#cursor.cursor--clicked {
+  transform: translate(-50%, -50%) scale(2);
+}
+
 /* ---------- Social links in hero ---------- */
 .social-links {
   display: flex;

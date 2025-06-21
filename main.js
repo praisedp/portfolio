@@ -34,6 +34,10 @@
   /* Show cursor when mouse enters the page / hide when it leaves */
   document.body.addEventListener('mouseenter', () => (dot.style.opacity = '1'));
   document.body.addEventListener('mouseleave', () => (dot.style.opacity = '0'));
+
+  /* Grow / shrink the cursor on mouse press */
+  window.addEventListener('mousedown', () => dot.classList.add('cursor--clicked'));
+  window.addEventListener('mouseup',   () => dot.classList.remove('cursor--clicked'));
 })();
 
 /* ========= Hide fake cursor while over .btn (optional) ========= */
