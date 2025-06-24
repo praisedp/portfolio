@@ -400,6 +400,15 @@ footer a {
   transform: translate(-50%, -50%) scale(2);
 }
 
+#cursor.cursor--hover {
+  transform: translate(-50%, -50%) scale(2.5); /* Adjust scale as needed */
+  transition: transform 0.15s;
+}
+#cursor.cursor--hover.cursor--clicked {
+  transform: translate(-50%, -50%) scale(3);
+}
+
+
 /* =====================
    Social Links (Hero)
    ===================== */

@@ -38,6 +38,13 @@
   /* Grow / shrink the cursor on mouse press */
   window.addEventListener('mousedown', () => dot.classList.add('cursor--clicked'));
   window.addEventListener('mouseup',   () => dot.classList.remove('cursor--clicked'));
+
+  // Grow cursor on hover over buttons and links
+  const hoverables = document.querySelectorAll('a, button, .btn, .nav-btn, .floating-nav-btn');
+  hoverables.forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('cursor--hover'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('cursor--hover'));
+  });
 })();
 
 /* ========= Hide fake cursor while over .btn (optional) ========= */
