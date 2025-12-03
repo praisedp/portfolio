@@ -1,85 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pasan Perera | Portfolio</title>
+    <link rel="stylesheet" href="/fonts/stylesheet.css" />
+</head>
 
-    <!-- Local web-font declarations -->
-    <link rel="stylesheet" href="fonts/stylesheet.css" />
-    <!-- Main site styles -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
 
-    <script src="main.js" defer></script>
-  </head>
-  <body>
-    <!-- Hero -->
-    <header class="hero">
-      <div class="hero-wrapper">
-        <div class="hero-left">
-          <div class="hero-content">
-            <h1>Hi, I'm Pasan Perera</h1>
-            <h2 class="headline">Full-Stack Engineer & Data Science Undergraduate</h2>
-            <p class="value-prop">
-              Third-year Data Science undergraduate at SLIIT transforming data into decisions and ideas into clean, maintainable code.
-            </p>
-            
-            <div class="cta-row">
-              <a href="Pasan_Perea_Resume.pdf" target="_blank" class="btn btn-secondary">Download CV</a>
-            </div>
-            
-            <div class="social-links">
-              <a href="https://github.com/praisedp" target="_blank" rel="noopener">
-                <i data-lucide="github"></i>
-                <span>GitHub</span>
-              </a>
-              <a href="http://linkedin.com/in/pasan-perera-269920345" target="_blank" rel="noopener">
-                <i data-lucide="linkedin"></i>
-                <span>LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <nav class="hero-nav" role="navigation" aria-label="Section navigation">
-            <a href="#about"      class="nav-btn">About</a>
-            <a href="#projects"   class="nav-btn">Projects</a>
-            <a href="#skills"     class="nav-btn">Skills</a>
-            <a href="#education"  class="nav-btn">Education</a>
-            <a href="#contact"    class="nav-btn">Contact</a>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <!-- Mobile navigation toggle -->
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Mobile navigation overlay -->
-    <div class="mobile-nav" id="mobile-nav">
-      <nav class="hero-nav" role="navigation" aria-label="Mobile navigation">
-        <a href="#about"      class="nav-btn">About</a>
-        <a href="#projects"   class="nav-btn">Projects</a>
-        <a href="#skills"     class="nav-btn">Skills</a>
-        <a href="#education"  class="nav-btn">Education</a>
-        <a href="#contact"    class="nav-btn">Contact</a>
-      </nav>
-    </div>
-
-    <!-- Fake cursor dot -->
-    <div id="cursor"></div>
-
-    <script>
-      // Initialize Lucide icons
-      lucide.createIcons();
-    </script>
-  </body>
 </html>
