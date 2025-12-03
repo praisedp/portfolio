@@ -1,6 +1,20 @@
 import { useState, useEffect } from 'react';
 import '../styles/global.css';
 
+export type NavLinkItem = {
+    id: string;
+    label: string;
+    href: string;
+};
+
+export const NAV_LINKS: NavLinkItem[] = [
+    { id: 'overview', label: 'Overview', href: '#overview' },
+    { id: 'about', label: 'About', href: '#about' },
+    { id: 'projects', label: 'Projects', href: '#projects' },
+    { id: 'education', label: 'Education', href: '#education' },
+    { id: 'contact', label: 'Contact', href: '#contact' },
+];
+
 export const Navbar = () => {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
@@ -29,20 +43,8 @@ export const Navbar = () => {
         return () => document.removeEventListener('click', handleClickOutside);
     }, [isMobileNavOpen]);
 
-    const navLinks = [
-        { href: '#about', label: 'About' },
-        { href: '#projects', label: 'Projects' },
-        { href: '#skills', label: 'Skills' },
-        { href: '#education', label: 'Education' },
-        { href: '#contact', label: 'Contact' },
-    ];
-
     return (
         <>
-            {/* Desktop Navigation (part of Hero Right in original design, but extracted here for reusability if needed, 
-          though in the original design it was specific to the hero right side. 
-          I will create a component that renders the links, which can be used in both places) */}
-
             {/* Mobile Hamburger */}
             <button
                 className={`hamburger ${isMobileNavOpen ? 'active' : ''}`}
@@ -58,9 +60,9 @@ export const Navbar = () => {
             {/* Mobile Navigation Overlay */}
             <div className={`mobile-nav ${isMobileNavOpen ? 'active' : ''}`} id="mobile-nav">
                 <nav className="hero-nav" role="navigation" aria-label="Mobile navigation">
-                    {navLinks.map((link) => (
+                    {NAV_LINKS.map((link) => (
                         <a
-                            key={link.href}
+                            key={link.id}
                             href={link.href}
                             className="nav-btn"
                             onClick={closeMobileNav}
@@ -74,22 +76,26 @@ export const Navbar = () => {
     );
 };
 
-export const NavLinks = () => {
-    const navLinks = [
-        { href: '#about', label: 'About' },
-        { href: '#projects', label: 'Projects' },
-        { href: '#skills', label: 'Skills' },
-        { href: '#education', label: 'Education' },
-        { href: '#contact', label: 'Contact' },
-    ];
+interface NavLinksProps {
+    activeId?: string;
+}
 
+export const NavLinks = ({ activeId }: NavLinksProps) => {
     return (
         <nav className="hero-nav" role="navigation" aria-label="Section navigation">
-            {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="nav-btn">
-                    {link.label}
-                </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+                const isActive = activeId === link.id;
+                return (
+                    <a
+                        key={link.id}
+                        href={link.href}
+                        className={`nav-btn ${isActive ? 'nav-btn--active' : ''}`}
+                        aria-current={isActive ? 'true' : undefined}
+                    >
+                        {link.label}
+                    </a>
+                );
+            })}
         </nav>
     );
-}
+};
