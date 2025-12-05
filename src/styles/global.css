@@ -620,8 +620,7 @@ footer a {
 }
 
 .social-links a:hover {
-  color: var(--frosted-white);
-  transform: translateY(-2px);
+  color: var(--cinnabar);
 }
 
 .social-links a i {
@@ -632,6 +631,21 @@ footer a {
 
 .social-links a span {
   font-weight: 500;
+}
+
+.magnetic-btn {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.18s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.22s ease, color 0.3s;
+}
+
+.magnetic-btn.is-magnetic-active {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translate3d(0, -2px, 0);
+}
+
+.magnetic-btn svg {
+  pointer-events: none;
 }
 
 /* =====================
@@ -708,6 +722,10 @@ footer a {
 
 .nav-btn--active {
   font-size: 1.5em;
+  color: var(--cinnabar);
+}
+
+.nav-btn--active:hover {
   color: var(--cinnabar);
 }
 

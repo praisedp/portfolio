@@ -1,8 +1,8 @@
 import { HeroSectionFrame } from './HeroSectionFrame';
 
-export const AboutSection = () => (
+export const SkillsSection = () => (
     <HeroSectionFrame
-        eyebrow="About"
+        eyebrow="Skills"
         title="Curious builder with a data-first mindset"
         headline="Turning ambiguous problems into purposeful products"
         description="From freelancing gigs to campus projects, I lead with empathy, validate with data, and deliver with TypeScript, Python, and a stack of modern cloud tooling."

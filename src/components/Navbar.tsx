@@ -9,7 +9,7 @@ export type NavLinkItem = {
 
 export const NAV_LINKS: NavLinkItem[] = [
     { id: 'overview', label: 'Overview', href: '#overview' },
-    { id: 'about', label: 'About', href: '#about' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'projects', label: 'Projects', href: '#projects' },
     { id: 'education', label: 'Education', href: '#education' },
     { id: 'contact', label: 'Contact', href: '#contact' },
