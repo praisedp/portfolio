@@ -10,6 +10,12 @@
   /* Off-white for backgrounds */
   --steely: #929292;
   /* Muted gray for secondary text */
+  --sandstone: #d8c3a5;
+  /* Highlight color for active nav */
+  --deepblue: #10214b;
+  /* Deep blue accent color */
+  --cinnabar: #e8492a;
+  /* Vibrant red accent color */
 }
 
 /* =====================
@@ -51,10 +57,10 @@ label {
    ===================== */
 .btn {
   display: inline-block;
-  background: var(--glacier-gray);
+  background: var(--frosted-white);
   color: var(--obsidian);
-  padding: 0.75rem 1.75rem;
-  border-radius: 0.25rem;
+  padding: 0.75rem 2.5rem;
+  border-radius: 999px;
   font-weight: 600;
   transition: background 0.3s, transform 0.1s, box-shadow 0.1s;
   cursor: none;
@@ -67,8 +73,20 @@ label {
 }
 
 .btn:hover {
-  background: var(--obsidian);
+  background: var(--cinnabar);
   color: var(--frosted-white);
+}
+
+.btn-secondary {
+  border-radius: 999px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  background: var(--frosted-white);
+  color: var(--obsidian);
+}
+
+.btn-secondary:hover {
+  background: var(--cinnabar);
 }
 
 .btn--active {
@@ -690,7 +708,7 @@ footer a {
 
 .nav-btn--active {
   font-size: 1.5em;
-  color: var(--obsidian);
+  color: var(--cinnabar);
 }
 
 /* =====================
