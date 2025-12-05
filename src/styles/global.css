@@ -689,7 +689,7 @@ footer a {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3.5px;
   background: var(--obsidian);
   border-radius: 2px;
 }
@@ -701,7 +701,7 @@ footer a {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 3.5px;
   background: var(--obsidian);
   border-radius: 2px;
 }
