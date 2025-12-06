@@ -52,6 +52,26 @@ label {
   cursor: none;
 }
 
+@media (pointer: coarse) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  .btn,
+  .interactive-chip,
+  .floating-nav-btn,
+  .nav-btn {
+    cursor: auto;
+  }
+
+  #cursor {
+    display: none;
+  }
+}
+
 /* =====================
    Buttons
    ===================== */

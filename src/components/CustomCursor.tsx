@@ -1,10 +1,42 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../styles/global.css'; // Ensure styles are loaded
 
 export const CustomCursor = () => {
     const cursorRef = useRef<HTMLDivElement>(null);
+    const [isCoarsePointer, setIsCoarsePointer] = useState(false);
 
     useEffect(() => {
+        if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+            return;
+        }
+
+        const mediaQuery = window.matchMedia('(pointer: coarse)');
+        const updatePointerMode = (matches: boolean) => {
+            setIsCoarsePointer(matches);
+        };
+
+        updatePointerMode(mediaQuery.matches);
+        const handler = (event: MediaQueryListEvent) => updatePointerMode(event.matches);
+
+        if (typeof mediaQuery.addEventListener === 'function') {
+            mediaQuery.addEventListener('change', handler);
+        } else {
+            // Safari < 14 fallback
+            mediaQuery.addListener(handler);
+        }
+
+        return () => {
+            if (typeof mediaQuery.removeEventListener === 'function') {
+                mediaQuery.removeEventListener('change', handler);
+            } else {
+                mediaQuery.removeListener(handler);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (isCoarsePointer) return;
+
         const dot = cursorRef.current;
         if (!dot) return;
 
@@ -60,7 +92,9 @@ export const CustomCursor = () => {
             });
             observer.disconnect();
         };
-    }, []);
+    }, [isCoarsePointer]);
+
+    if (isCoarsePointer) return null;
 
     return (
         <div id="cursor" ref={cursorRef} style={{ opacity: 0 }}></div>
